@@ -14,17 +14,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(HomeController.class)
-public class HomeControllerTest {
+@WebMvcTest(DesignTacoController.class)
+public class DesignTacoControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
 	
 	@Test
 	public void testHomePage() throws Exception {
-		mockMvc.perform(get("/"))
+		mockMvc.perform(get("/design"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("home"))
-		.andExpect(content().string(containsString("Welcome to...")));
+		.andExpect(view().name("design"));
 	}
 
 }
