@@ -12,18 +12,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import tacos.data.IngredientRepository;
+import tacos.data.TacoRepository;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(DesignTacoController.class)
+@WebMvcTest(WebConfig.class)
 public class DesignTacoControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
-	
+
 	@Test
 	public void testHomePage() throws Exception {
-		mockMvc.perform(get("/design"))
+		mockMvc.perform(get("/"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("design"));
+		.andExpect(view().name("home"));
 	}
 
 }
