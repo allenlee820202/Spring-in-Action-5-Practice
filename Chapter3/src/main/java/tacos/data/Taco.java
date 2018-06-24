@@ -9,11 +9,11 @@ import javax.validation.constraints.Size;
 
 @Data
 public class Taco {
-	private Long id;
-	private Date createdAt;
 	@NotNull
     @Size(min=5, message="Name must be at least 5 characters long.")
-	private String name;
+	private String tacoName;
 	@Size(min=1, message="You must choose at least one ingredient.")
-	private List<Ingredient> ingredients;
+	private List<String> ingredients;
+	private Long id;
+	private Date createdAt;
 }

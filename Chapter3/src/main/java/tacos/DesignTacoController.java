@@ -22,16 +22,16 @@ public class DesignTacoController {
 
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(DesignTacoController.class);
 
-    private final IngredientRepository ingredientRepo;
+    private IngredientRepository ingredientRepo;
 
-    private TacoRepository designRepo;
+    private TacoRepository tacoRepository;
 
     @Autowired
     public DesignTacoController(
             IngredientRepository ingredientRepo,
-            TacoRepository designRepo) {
+            TacoRepository tacoRepository) {
         this.ingredientRepo = ingredientRepo;
-        this.designRepo = designRepo;
+        this.tacoRepository = tacoRepository;
     }
 
 
@@ -39,6 +39,7 @@ public class DesignTacoController {
 	public String showDesignForm(Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
         ingredientRepo.findAll().forEach(i -> ingredients.add(i));
+
 
 		Type[] types = Ingredient.Type.values();
 		for (Type type : types) {
@@ -64,18 +65,25 @@ public class DesignTacoController {
 
     @PostMapping
     public String processDesign(
-    		@Valid Taco design, 
+    		@Valid Taco design,
     		Errors errors, 
     		@ModelAttribute Order order) {
 
+        System.out.println(design.toString());
+
         if (errors.hasErrors()) {
         	for (ObjectError error : errors.getAllErrors()) {
+        	    System.out.println(error.toString());
         	    System.out.println(error.getObjectName());
         	}
-            return "redirect:/orders/current";
+        	// Do not return "design" directly without rendering first.
+            return "redirect:/design";
+            // return this.showDesignForm(model);
+            // return "design";
         }
 
-        Taco saved = designRepo.save(design);
+        log.info("Processing taco: " + design);
+        Taco saved = tacoRepository.save(design);
         order.addDesign(saved);
 
         return "redirect:/orders/current";
