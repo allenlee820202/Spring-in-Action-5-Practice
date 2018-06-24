@@ -30,16 +30,17 @@ public class OrderController {
         return "orderForm";
     }
 
-	@PostMapping
-	public String processOrder(@Valid Order order, Errors errors, SessionStatus sessionStatus) {
-		if (errors.hasErrors()) {
+    @PostMapping
+    public String processOrder(@Valid Order order, Errors errors, SessionStatus sessionStatus) {
+
+        if (errors.hasErrors()) {
 		    return "orderForm";
         }
 
-		orderRepo.save(order);
-		sessionStatus.setComplete();
-		log.info("Order submitted: " + order);
+        orderRepo.save(order);
+        sessionStatus.setComplete();
+        log.info("Order submitted: " + order);
 
-		return "redirect:/";
-	}
+        return "redirect:/";
+    }
 }

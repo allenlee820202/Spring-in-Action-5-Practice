@@ -41,17 +41,16 @@ public class DesignTacoController {
         ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 
 
-		Type[] types = Ingredient.Type.values();
-		for (Type type : types) {
-			model.addAttribute(type.toString().toLowerCase(),
+        Type[] types = Ingredient.Type.values();
+        for (Type type : types) {
+            model.addAttribute(type.toString().toLowerCase(),
                     ingredients.stream().
                             filter(ingredient -> ingredient.getType().equals(type)).collect(Collectors.toList()));
-		}
-		
-		model.addAttribute("design", new Taco());
-		
-		return "design";
-	}
+        }
+
+        model.addAttribute("design", new Taco());
+        return "design";
+    }
 
     @ModelAttribute(name = "order")
     public Order order() {
@@ -65,21 +64,17 @@ public class DesignTacoController {
 
     @PostMapping
     public String processDesign(
-    		@Valid Taco design,
-    		Errors errors, 
-    		@ModelAttribute Order order) {
-
+            @Valid Taco design,
+            Errors errors,
+            @ModelAttribute Order order) {
         System.out.println(design.toString());
 
         if (errors.hasErrors()) {
-        	for (ObjectError error : errors.getAllErrors()) {
-        	    System.out.println(error.toString());
-        	    System.out.println(error.getObjectName());
-        	}
-        	// Do not return "design" directly without rendering first.
+            for (ObjectError error : errors.getAllErrors()) {
+                System.out.println(error.toString());
+                System.out.println(error.getObjectName());
+            }
             return "redirect:/design";
-            // return this.showDesignForm(model);
-            // return "design";
         }
 
         log.info("Processing taco: " + design);
