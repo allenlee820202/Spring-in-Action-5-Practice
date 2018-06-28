@@ -1,4 +1,18 @@
-## Inspect h2-console using your browser.
+## Missing parts in the textbook
+### Necessary dependencies in the ```.pom``` file
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+  <groupId>javax.persistence</groupId>
+  <artifactId>javax.persistence-api</artifactId>
+  <version>2.2</version>
+</dependency>
+```
+
+## Inspect h2-console using your browser
 ### Log in
 1. Go to ```localhost:8080/h2-console```
 2. Set ```JDBC URL``` to ```jdbc:h2:mem:testdb```
