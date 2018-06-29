@@ -27,3 +27,4 @@ Building Spring projects with Lombok often requires additional settings or the c
 * Create an user repository to store user information by extending ```CrudRepository```. 
 * Write a ```@Service``` as a user repository service by implementing ```UserDetailsService```, which looks up users in the user repository.
 * Configure the security options by extending ```WebSecurityConfigurerAdapter```
+* Usage example of the prevention of Cross-Site Request Forgery(CSRF).
