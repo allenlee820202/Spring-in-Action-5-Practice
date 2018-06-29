@@ -21,3 +21,9 @@ Building Spring projects with Lombok often requires additional settings or the c
 * Working with JDBC template via ```Repository```
 * Defining a RDBMS schema and preloading the data.
 * Inserting data with Simple JDBC Insert
+
+## Chapter 4
+* User information customization using ```@Entity```.
+* Create an user repository to store user information by extending ```CrudRepository```. 
+* Write a ```@Service``` as a user repository service by implementing ```UserDetailsService```, which looks up users in the user repository.
+* Configure the security options by extending ```WebSecurityConfigurerAdapter```
