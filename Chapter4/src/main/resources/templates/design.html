@@ -53,6 +53,8 @@
         <br/>
         <button>Submit your taco</button>
     </div>
+    <!-- Without this line, Spring Security throws a 403 forbidden code while POSTing.-->
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
 </form>
 </body>
 </html>

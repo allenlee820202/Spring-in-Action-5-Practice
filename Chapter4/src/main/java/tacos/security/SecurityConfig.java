@@ -45,9 +45,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .defaultSuccessUrl("/design", true)
                 .and()
                     .logout()
-                        .logoutSuccessUrl("/")
-                .and()
-                    .csrf().disable();
+                        .logoutSuccessUrl("/login");
+        /*
+         * To access h2-console, disable csrf() and frameOptions().
+         * And don't forget to remove csrf input lines in .html pages.
+         */
+        // http.csrf().disable();
+        // http.headers().frameOptions().disable();
     }
 
     /*

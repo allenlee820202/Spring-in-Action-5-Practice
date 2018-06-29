@@ -16,6 +16,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * JPA(Java persistence API) based user data schema.
+ */
 @Entity
 @Data
 @NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)

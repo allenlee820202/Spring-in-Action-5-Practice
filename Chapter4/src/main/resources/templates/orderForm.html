@@ -17,6 +17,7 @@
             </span>
         </div>
 
+        <!--
         <h3>Deliver my taco masterpieces to...</h3>
         <label for="name">Name: </label>
         <input type="text" th:field="*{name}"/>
@@ -24,6 +25,7 @@
             th:if="${#fields.hasErrors('name')}"
             th:errors="*{name}">Name Error</span>
         <br/>
+        -->
 
 	    <label for="street">Street address: </label>
 	    <input type="text" th:field="*{street}"/>
@@ -75,7 +77,9 @@
 	        th:errors="*{ccCVV}">ccCVV Error</span>
 	    <br/>
 
-	    <input type="submit" value="Submit order"/> 
+        <!-- However, this csrf line is not necessary.-->
+        <!--input type="hidden" name="_csrf" th:value="${_csrf.token}"/-->
+	    <input type="submit" value="Submit order"/>
 	</form>
 </body>
 </html>

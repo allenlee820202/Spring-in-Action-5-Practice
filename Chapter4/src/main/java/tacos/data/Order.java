@@ -1,10 +1,12 @@
 package tacos.data;
 
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber; 
 import org.hibernate.validator.constraints.NotBlank;
 import lombok.Data;
+import tacos.User;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,9 +14,10 @@ import java.util.List;
 
 @Data
 public class Order {
+    @ManyToOne
+    private User user;
     private Long id;
     private Date placedAt;
-	@NotBlank(message="Name is required.")
 	private String name;
     @NotBlank(message="Street is required")
     private String street;

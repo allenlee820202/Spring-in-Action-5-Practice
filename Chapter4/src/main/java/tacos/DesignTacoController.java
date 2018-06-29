@@ -67,13 +67,9 @@ public class DesignTacoController {
             @Valid Taco design,
             Errors errors,
             @ModelAttribute Order order) {
-        System.out.println(design.toString());
 
         if (errors.hasErrors()) {
-            for (ObjectError error : errors.getAllErrors()) {
-                System.out.println(error.toString());
-                System.out.println(error.getObjectName());
-            }
+            System.out.println("error");
             return "redirect:/design";
         }
 

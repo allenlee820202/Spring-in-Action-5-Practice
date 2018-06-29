@@ -41,9 +41,6 @@ public class JdbcOrderRepository implements OrderRepository {
         Map<String, Object> values = objectMapper.convertValue(order, Map.class);
         values.put("placedAt", order.getPlacedAt());
         values.remove("tacos");
-        for (Map.Entry<String, Object> entry : values.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
-        }
         long orderId = orderInserter
                 .executeAndReturnKey(values)
                 .longValue();
@@ -54,7 +51,6 @@ public class JdbcOrderRepository implements OrderRepository {
         Map<String, Object> values = new HashMap<>();
         values.put("tacoOrder", orderId);
         values.put("taco", taco.getId());
-        System.out.println("order id: " + orderId + " taco id: " + taco.getId());
         orderTacoInserter.execute(values);
     }
 }
