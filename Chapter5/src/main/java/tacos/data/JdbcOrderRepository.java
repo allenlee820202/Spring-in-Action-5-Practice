@@ -2,14 +2,13 @@ package tacos.data;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
+import tacos.User;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class JdbcOrderRepository implements OrderRepository {
@@ -53,4 +52,10 @@ public class JdbcOrderRepository implements OrderRepository {
         values.put("taco", taco.getId());
         orderTacoInserter.execute(values);
     }
+
+    @Override
+    public List<Order> findByUserOrderByPlacedAtDesc(User user, Pageable pageable) {
+        return new ArrayList<>();
+    };
+
 }
