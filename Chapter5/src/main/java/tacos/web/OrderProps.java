@@ -10,17 +10,10 @@ import org.springframework.validation.annotation.Validated;
 @Component
 @ConfigurationProperties(prefix="taco.orders")
 @Validated
+@Data
 public class OrderProps {
 
-    // @Min(value=5, message="must be between 5 and 25")
-    // @Max(value=25, message="must be between 5 and 25")
+    @Min(value=5, message="must be between 5 and 25")
+    @Max(value=25, message="must be between 5 and 25")
     private int pageSize = 20;
-
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public int getPageSize() {
-        return pageSize;
-    }
 }
