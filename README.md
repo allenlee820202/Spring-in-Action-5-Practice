@@ -31,5 +31,5 @@ Building Spring projects with Lombok often requires additional settings or the c
 
 ## Chapter 5
 * Configure a data source, using MySQL as an example.
-* Configure logging (WARN, INFO, DEBUG, etc.)
+* Configure logging (```WARN```, ```INFO```, ```DEBUG```, etc.)
 * Define profile-specific properties.
