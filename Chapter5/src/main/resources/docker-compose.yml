@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+   db:
+     image: mysql:latest
+     volumes:
+       - ~/Documents/workspace-sts-3.9.4.RELEASE/Spring-in-Action-5-Sample-Code/Chapter5/src/main/resources/:/app
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: letmein
+       MYSQL_DATABASE: tacocloud
+       MYSQL_USER: springuser
+       MYSQL_PASSWORD: letmein
+     ports:
+       - "3306:3306"
+    
