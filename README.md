@@ -1,5 +1,5 @@
-# Spring in Action Sample Code
-Sample code from Spring in Action fifth edition.
+# Spring in Action 5 Practice
+Practice from Spring in Action fifth edition.
 
 ## IntelliJ Setup for Lombok
 Building Spring projects with Lombok often requires additional settings or the compilation may fail. If the compilation failed, Try these tips:
@@ -28,3 +28,8 @@ Building Spring projects with Lombok often requires additional settings or the c
 * Write a ```@Service``` as a user repository service by implementing ```UserDetailsService```, which looks up users in the user repository.
 * Configure the security options by extending ```WebSecurityConfigurerAdapter```
 * Usage example of the prevention of Cross-Site Request Forgery(CSRF).
+
+## Chapter 5
+* Configure a data source, using MySQL as an example.
+* Configure logging (WARN, INFO, DEBUG, etc.)
+* Define profile-specific properties.
