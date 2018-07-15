@@ -2,22 +2,25 @@
 ### Necessary dependencies in the ```.pom``` file
 ```xml
 <dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
-<dependency>
-  <groupId>javax.persistence</groupId>
-  <artifactId>javax.persistence-api</artifactId>
-  <version>2.2</version>
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
 </dependency>
 ```
 
-## Inspect h2-console using your browser
-### Log in
-1. Go to ```localhost:8080/h2-console```
-2. Set ```JDBC URL``` to ```jdbc:h2:mem:testdb```
-3. Test connection should show _successful_
-4. Click _connect_
+## Tacocloud MySQL server setup
+### Prerequisites
+1. Docker
+2. Docker-compose
 
-### Reference
-See [this youtube video](https://www.youtube.com/watch?v=tSJW5NKPhcM).
+### Start MySQL server
+```bash
+cd Chapter5/src/main/resources/
+docker-compose up
+```
+
+### Load MySQL schemas
+```bash
+docker exec -it [container id or name] bash
+cd /app
+sh load_default_db.sh
+```
