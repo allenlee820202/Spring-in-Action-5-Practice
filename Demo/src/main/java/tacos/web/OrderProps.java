@@ -13,7 +13,7 @@ import org.springframework.validation.annotation.Validated;
 @Data
 public class OrderProps {
 
-    @Min(value=5, message="must be between 5 and 25")
+    @Min(value=1, message="must be between 5 and 25")
     @Max(value=25, message="must be between 5 and 25")
-    private int pageSize = 20;
+    private int pageSize = 2;
 }

@@ -1,7 +1,7 @@
 server:
-  port: 8443
-  ssl:
-    key-store: file:///Users/chungpinglee/Documents/workspace-sts-3.9.4.RELEASE/Spring-in-Action-5-Sample-Code/Chapter5/src/main/resources/mykeys.jks
+   port: 8443
+   ssl:
+    key-store: src/main/resources/mykeys.jks
     key-store-password: letmein
     key-password: letmein
 
@@ -18,7 +18,7 @@ logging:
 
   taco:
    orders:
-    pageSize: 14
+    pageSize: 1
 
 spring:
   datasource:
@@ -29,6 +29,10 @@ spring:
   jpa.hibernate.ddl-auto: update
   jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
   jpa.show-sql: true
+
+  data:
+    rest:
+      base-path: /api
 
 ---
 spring:

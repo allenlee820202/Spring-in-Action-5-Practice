@@ -1,4 +1,4 @@
-package tacos;
+package tacos.controller;
 
 import javax.validation.Valid;
 

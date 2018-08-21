@@ -3,6 +3,7 @@ package tacos.data;
 import java.util.Date;
 import java.util.List;
 import lombok.Data;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Size;
 
 @Data
 @Entity
+@RestResource(rel = "tacos", path = "tacos")
 public class Taco {
 
 	@NotNull
@@ -24,11 +26,11 @@ public class Taco {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Date CreatedAt;
+    private Date createdAt;
 
     @PrePersist
     public void createdAt() {
-        this.CreatedAt = new Date();
+        this.createdAt = new Date();
     }
 
 }

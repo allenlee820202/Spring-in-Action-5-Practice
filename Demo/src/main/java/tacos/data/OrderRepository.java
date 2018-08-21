@@ -8,4 +8,5 @@ import java.util.List;
 public interface OrderRepository extends CrudRepository<Order, Long> {
     Order save(Order order);
     List<Order> findByUserOrderByPlacedAtDesc(User user, Pageable pageable);
+    void deleteById(Long id);
 }
