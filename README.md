@@ -33,3 +33,8 @@ Building Spring projects with Lombok often requires additional settings or the c
 * Configure a data source, using MySQL as an example.
 * Configure logging (```WARN```, ```INFO```, ```DEBUG```, etc.)
 * Define profile-specific properties.
+
+## Chapter 6
+* REST Controller
+* Enabling Hyperlinks
+* Use Spring Data REST to enable data-backend service.
