@@ -1,0 +1,9 @@
+version: '3.3'
+
+services:
+   db:
+     image: vromero/activemq-artemis:latest
+     restart: always
+     environment:
+       ARTEMIS_USERNAME: tacocloud
+       ARTEMIS_PASSWORD: letmein
